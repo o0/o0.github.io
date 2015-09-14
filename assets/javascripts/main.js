@@ -1,1 +1,1 @@
-document.body.innerHTML = 'Hello from external JavaScript file';
+document.body.innerHTML += 'Hello from external JavaScript file';
