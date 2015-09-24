@@ -58,7 +58,7 @@
         previewImage.naturalHeight - displacementY.value);
 
     if (side.value > side.max) {
-      side.value = side.max;
+      side.value = Math.max(side.max, side.min);
     }
   }
 
