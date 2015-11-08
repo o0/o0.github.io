@@ -1,25 +1,78 @@
 ---
 layout: post
-title:  "Welcome to Jekyll!"
-date:   2015-08-19 15:55:01
-categories: jekyll update
+title:  "Инструкция, как забрать параллельный проект"
+date:   2015-11-08 16:00:01
+categories:
 ---
-You’ll find this post in your `_posts` directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run `jekyll serve`, which launches a web server and auto-regenerates your site when a file is updated.
 
-To add new posts, simply add a file in the `_posts` directory that follows the convention `YYYY-MM-DD-name-of-post.ext` and includes the necessary front matter. Take a look at the source for this post to get an idea about how it works.
+Параллельный проект забирается с помощью гита. Идея простая — все наши репозитории свободно открыты для чтения, но не для записи, поэтому весь код в них доступен. Остается забрать в некий репозиторий, в котором вы будете разрабатывать параллельный проект, изначальный коммит и все патчи любого учебного репозитория параллельного проекта.
 
-Jekyll also offers powerful support for code snippets:
+Общий алгоритм действий:
+* создать пустой репозиторий
+* подключить репозиторий из которого забирать проекты как один из удаленных (`remote`)
+* черрипикнуть (`cherry-pick`) начальный коммит и все патчи по одному в свой репозиторий
 
-{% highlight ruby %}
-def print_hi(name)
-  puts "Hi, #{name}"
-end
-print_hi('Tom')
-#=> prints 'Hi, Tom' to STDOUT.
+Теперь разберем действия по шагам.
+
+_Я показываю пример в консоли. Поддержка команды `cherry-pick` отличается от клиента к клиенту: в SourceTree и WebStorm она есть, в GitHub Desktop, насколько я знаю, ее нет, поэтому надежней всего показать в консоли, которая поддерживает все._
+
+# Создать пустой репозиторий
+Первым делом нужно создать репозиторий, в котроый мы перенесем коммиты. Для этого нужно зайти в папку, в которой у нас будет лежать параллельный проект и выполнить команду
+
+{% highlight bash %}
+git init
 {% endhighlight %}
 
-Check out the [Jekyll docs][jekyll] for more info on how to get the most out of Jekyll. File all bugs/feature requests at [Jekyll’s GitHub repo][jekyll-gh]. If you have questions, you can ask them on [Jekyll’s dedicated Help repository][jekyll-help].
+После этого нужно создать начальный коммит в нашем репозитории, чтобы изменения из удаленного репозитория не применились к нашему мастеру полностью. Важно создать файл, который не пересекается с файлами в другом репозитории, чтобы не возникло конфликтов. Например, создадим файл `hello.md`.
 
-[jekyll]:      http://jekyllrb.com
-[jekyll-gh]:   https://github.com/jekyll/jekyll
-[jekyll-help]: https://github.com/jekyll/jekyll-help
+{% highlight bash %}
+echo 'hello' > hello.md
+git add .
+git commit -m 'Initial commit'
+{% endhighlight %}
+
+
+# Подключить удаленный репозиторий
+Зайдите на [https://github.com/js-htmlacademy/] и выберите любой репозиторий с параллельным проектом, который вам понравится. Зайдите на его страницу и скопируйте в буфер обмена адрес репозитория, который находится справа. Он подписан как *SSH Clone URL*.
+
+Теперь этот адрес надо подключить как удаленный в наш репозиторий:
+{% highlight bash %}
+git remote add repository-to-steal <скопированный адрес>
+{% endhighlight %}
+
+После того, как мы подключили удаленный репозиторий, мы должны скачать из него изменения, чтобы потом перенести их в нашу ветку. Делается это командой `fetch`. Важно не запускать после этого `merge` чтобы не перенести все изменения.
+
+{% highlight bash %}
+git fetch repository-to-steal
+{% endhighlight %}
+
+# Черрипикнуть начальный коммит и все патчи
+Команда `cherry-pick` переносит коммит с указанным id в текущую ветку. Это как раз то, что там надо, чтобы забрать чистый проект — мы заберем только изменения от кексобота и не будем брать изменения от студента. Единственное, что осталось сделать — узнать id коммитов. Это можно сделать, посмотрев историю коммитов, которая у нас есть в ветке `master` удаленного репозиторий.
+
+{% highlight bash %}
+git log repository-to-steal/master
+{% endhighlight %}
+
+Теперь в логе осталось выбрать те коммиты, которые нас интересуют, их автором указан `Keks`. _*По истории нужно идти снизу вверх, более ранние коммиты расположены ниже более поздних.*_
+
+```
+commit aa3bad38af97bfd3399a4400aac0876ffcb33b27
+Author: Keks <keks@htmlacademy.ru>
+Date:   Mon Oct 26 22:42:14 2015 +0300
+
+    :cat: Обновления от Кекса для модуля «Лучшие практики и оптимизация»
+```
+
+Надо найти все коммиты от Кексобота и перенести их в `master`. Для переноса указывается ID коммита — длинный хэш, который записан в поле `commit` у записи.
+
+{% highlight bash %}
+git cherry-pick aa3bad38af97bfd3399a4400aac0876ffcb33b27
+{% endhighlight %}
+
+Теперь можно создать пустой на GitHub'e, по аналогии подключить его как `origin`
+для нашего репозитория и сделать `push`.
+
+{% highlight bash %}
+git remote
+git push
+{% endhighlight %}
