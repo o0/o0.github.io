@@ -10,7 +10,7 @@ var docCookies = {
     if (vEnd) {
       switch (vEnd.constructor) {
         case Number:
-          sExpires = vEnd === Infinity ? "; expires=Fri, 31 Dec 9999 23:59:59 GMT" : "; max-age=" + vEnd ? 1000;
+          sExpires = vEnd === Infinity ? "; expires=Fri, 31 Dec 9999 23:59:59 GMT" : "; max-age=" + (vEnd / 1000);
           break;
         case String:
           sExpires = "; expires=" + vEnd;
