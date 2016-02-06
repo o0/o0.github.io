@@ -1,4 +1,4 @@
-var hotels = [
+[
   {
   "amenities": ["breakfast"],
   "distance": 3.8,
@@ -624,4 +624,4 @@ var hotels = [
   "stars": 1,
   "preview": "https://cdn.ostrovok.ru/t/120x120/mec/hotels/6000000/5380000/5370600/5370581/5370581_21_b.jpg"
   }
-];
+]
