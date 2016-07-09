@@ -162,13 +162,13 @@ a.site-title {
 */
 .post-header {
   margin-bottom: $spacing-unit;
-
 }
 
 .post-title {
   font-size: 36px;
   letter-spacing: -1px;
   line-height: 1;
+  text-align: center;
 
   @include media-query($on-laptop) {
     font-size: 36px;
