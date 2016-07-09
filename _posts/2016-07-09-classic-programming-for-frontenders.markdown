@@ -3,6 +3,9 @@ layout: post
 title:  "Классическое программирование для фронтендеров"
 date:   2016-07-07 10:00:00
 categories:
+idea: разработчики должны опираться на мощную базу разработанную программистами из параллельных областей, изучать алгоритмы и структуры данных и приемы, которые применялись другими разработчиками
+preview: /assets/images/programming-for-frontenders/promo.png
+
 ---
 
 > [Презентация]({{site_url}}/share/classic-programming-for-frontenders.pdf){:target="_blank"} (PDF, 20 МБ) \\
