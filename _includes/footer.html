@@ -2,15 +2,8 @@
 
   <div class="wrapper">
 
-    <div class="col-wrapper">
-      <div class="col col-1">
-        <ul class="contact-list">
-          <li>{{ site.title }}</li>
-          <li><a href="mailto:{{ site.email }}">{{ site.email }}</a></li>
-        </ul>
-      </div>
-
-      <div class="col col-2">
+    <div class="col-wrapper col-wrapper-3">
+      <div class="col">
         <ul class="social-media-list">
           {% if site.github_username %}
           <li>
@@ -42,8 +35,19 @@
           {% endif %}
         </ul>
       </div>
-    </div>
 
+      <div class="col">
+        <ul class="contact-list">
+          <li>{{ site.title }}
+          <li><a href="mailto:{{ site.email }}">{{ site.email }}</a>
+          <li><br>
+        </ul>
+      </div>
+
+      <div class="col">
+        <p><small>За этот сайт спасибо <a href="https://jekyllrb.com/" target="_blank" rel="nofollow">Jekyll</a></small>
+      </div>
+    </div>
   </div>
 
 </footer>
