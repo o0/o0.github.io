@@ -3,7 +3,6 @@
 */
 .site-header {
   border-top: 5px solid $grey-color-dark;
-  border-bottom: 1px solid $grey-color-light;
   min-height: 56px;
   margin-bottom: 2em;
 
@@ -94,8 +93,8 @@
 * Site footer
 */
 .site-footer {
+  background: #eee;
   bottom: 0;
-  border-top: 1px solid $grey-color-light;
   color: $grey-color;
   font-size: 15px;
   padding: $spacing-unit 0;
@@ -120,6 +119,7 @@
 }
 
 .col {
+  box-sizing: border-box;
   float: left;
   margin-bottom: $spacing-unit / 2;
   padding-left: $spacing-unit / 2;
@@ -184,6 +184,19 @@
 .post-link {
   display: block;
   font-size: 24px;
+}
+
+.post-link-preview-wrap {
+  overflow: hidden;
+}
+
+.post-link-preview {
+  transition: transform 200ms ease-in;
+}
+
+.post-link-preview:hover {
+  transform: scale(1.01);
+  transform-origin: center;
 }
 
 
