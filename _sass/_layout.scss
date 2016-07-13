@@ -31,11 +31,10 @@ a.site-title {
 * Site footer
 */
 .site-footer {
-  background: #eee;
+  border-top: dotted 1px #eee;
   bottom: 0;
   color: $grey-color;
-  font-size: 15px;
-  padding: $spacing-unit 0;
+  padding: $spacing-unit/2 0;
   position: absolute;
   width: 100%;
 }
@@ -54,6 +53,7 @@ a.site-title {
 .contact-list,
 .social-media-list {
   list-style: none;
+  margin-bottom: 0;
   margin-left: 0;
 }
 
@@ -107,7 +107,7 @@ a.site-title {
 .page-content {
   box-sizing: border-box;
   min-height: 100%;
-  padding-bottom: 12em;
+  padding-bottom: 9em;
   position: relative;
 }
 

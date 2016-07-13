@@ -4,6 +4,13 @@
 
     <div class="col-wrapper col-wrapper-3">
       <div class="col">
+        <ul class="contact-list">
+          <li>{{ site.title }}
+          <li><a href="mailto:{{ site.email }}">{{ site.email }}</a>
+        </ul>
+      </div>
+
+      <div class="col">
         <ul class="social-media-list">
           {% if site.github_username %}
           <li>
@@ -33,14 +40,6 @@
             </a>
           </li>
           {% endif %}
-        </ul>
-      </div>
-
-      <div class="col">
-        <ul class="contact-list">
-          <li>{{ site.title }}
-          <li><a href="mailto:{{ site.email }}">{{ site.email }}</a>
-          <li><br>
         </ul>
       </div>
 
