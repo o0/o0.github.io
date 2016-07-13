@@ -4,6 +4,7 @@ description: > # this means to ignore newlines until "baseurl:"
 email: alexeenko.igor@gmail.com
 github_username:  o0
 markdown: kramdown
+timezone: Europe/Moscow
 title: Игорь Алексеенко
 twitter_username: iamo0
 url: "http://o0.github.io" # the base hostname & protocol for your site
