@@ -122,39 +122,69 @@ a.site-title {
   font-size: 20px;
 }
 
-.post-list {
-  list-style: none;
-  margin-left: 0;
-  text-align: center;
 
-  > li {
-    margin-bottom: $spacing-unit;
+.post-preview-link,
+.post-preview-link:active,
+.post-preview-link:hover,
+.post-preview-link:visited {
+  color: #000;
+  text-decoration: none;
+}
+
+
+.post-preview {
+  align-items: center;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: flex-start;
+  margin-bottom: $spacing-unit;
+  padding-right: 50px;
+  position: relative;
+  vertical-align: middle;
+}
+
+.post-preview-pic {
+  transition: transform 300ms linear;
+  transform-origin: 50% 80%;
+  min-width: 380px;
+}
+
+.post-preview-title {
+  font-size: 2em;
+}
+
+.post-preview-link:hover .post-preview-pic {
+  transform: scale(1.02);
+}
+
+.post-preview-link:hover .post-preview-title {
+  text-decoration: underline;
+}
+
+.post-preview-link:hover .post-preview-text {
+  text-decoration: none;
+}
+
+@media (max-width: 750px) {
+  .post-preview {
+    flex-wrap: wrap;
+    font-size: 90%;
+  }
+
+  .post-preview-content {
+    margin-left: 25px;
   }
 }
 
-.post-meta {
-  font-size: $small-font-size;
-  color: $grey-color;
-}
+@include media-query($on-palm) {
+  .post-preview-pic {
+    display: none;
+  }
 
-.post-link {
-  display: block;
-  font-size: 24px;
+  .post-preview-title {
+    text-decoration: underline;
+  }
 }
-
-.post-link-preview-wrap {
-  overflow: hidden;
-}
-
-.post-link-preview {
-  transition: transform 200ms ease-in;
-}
-
-.post-link-preview:hover {
-  transform: scale(1.01);
-  transform-origin: center;
-}
-
 
 
 /**
@@ -164,11 +194,10 @@ a.site-title {
   margin-bottom: $spacing-unit;
 }
 
-.post-title {
+.page h1 {
   font-size: 36px;
   letter-spacing: -1px;
   line-height: 1;
-  text-align: center;
 
   @include media-query($on-laptop) {
     font-size: 36px;
