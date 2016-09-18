@@ -1,0 +1,104 @@
+@import './button-group.css';
+@import './content-panel.css';
+@import './history-panel.css';
+@import './preview-panel.css';
+@import './select.css';
+@import './tabs.css';
+
+html, body {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-weight: 400;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+.layout,
+.panels {
+  height: 100%;
+  position: relative;
+}
+
+.panel {
+  display: block;
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 50%;
+  z-index: 1;
+}
+
+.panel-delimeter {
+  background: #333;
+  cursor: col-resize;
+  height: 100%;
+  left: 50%;
+  margin-left: -3px;
+  position: relative;
+  width: 3px;
+  z-index: 5;
+}
+
+.panel-delimeter::after,
+.panel-delimeter::before {
+  content: '';
+  display: block;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  width: 5px;
+  z-index: 5;
+}
+
+.panel-delimeter::after {
+  left: 100%;
+}
+
+.panel-delimeter::before {
+  left: -5px;
+}
+
+/* Экспорт */
+.panel-export {
+  background: #fff;
+  box-shadow: 0 0 10px rgba(128, 128, 155, 0.9);
+  display: block;
+  left: 50%;
+  margin-left: -200px;
+  padding: 10px;
+  position: fixed;
+  top: 15%;
+  width: 400px;
+  z-index: 6;
+}
+
+.panel-export-close {
+  border: red;
+  cursor: pointer;
+  display: block;
+  overflow: hidden;
+  position: absolute;
+  right: 10px;
+  text-align: center;
+  top: 10px;
+  width: 20px;
+}
+
+.panel-export-code {
+  font-family: monospace;
+  margin-bottom: 10px;
+  min-height: 350px;
+  white-space: pre-wrap;
+  width: 100%;
+}
+
+.drag-overlay {
+  bottom: 0;
+  display: none;
+  left: 0;
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: 4;
+}
