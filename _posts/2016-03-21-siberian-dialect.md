@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: default
 title:  "Сибирский диалект"
 date:   2015-11-08 16:00:01
 categories:
