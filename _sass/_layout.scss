@@ -81,9 +81,6 @@ a.site-title {
   width:         calc(33.33% - (#{$spacing-unit} / 2));
 }
 
-.col-wrapper-3 .col:last-child {
-  text-align: right;
-}
 
 @include media-query($on-palm) {
   .col-wrapper .col {

@@ -8,26 +8,31 @@ layout: page
 
 Разница между решениями и инструментами заключается в том, что решения не зависят от времени и выбранного стека технологий. Один и тот же алгоритм будет работать для UI сделанного как на Реакте, так и на jQuery
 
-<div class="col-wrapper" style="padding-bottom: 20px;">
-  <h2 style="padding-left: 15px; color: #000">Выступления</h2>
+<h2 style="color: #000">Выступления</h2>
 
+<div style="margin-bottom: 40px;">
+  Выступление на <a href="https://events.yandex.ru/events/yagosti/17-18-september-2016/">FrontTalks</a> в&nbsp;Екатеринбурге<br><nobr>18 сентября 2016</nobr>
+
+  <iframe width="800" height="600" src="https://www.youtube.com/embed/mc7EMdyawBk" frameborder="0" allowfullscreen></iframe>
+  <a href="{{site_url}}/share/2-classic-programming.pdf" target="blank">Презентация</a>&nbsp;(PDF, 5 МБ)
+</div>
+
+<div class="col-wrapper col-wrapper-2" style="padding-bottom: 20px;">
   <div class="col col-1">
-    Выступление на <a href="https://events.yandex.ru/events/yagosti/17-18-september-2016/">FrontTalks</a> в&nbsp;Екатеринбурге <nobr>18 сентября 2016</nobr>
+    Выступление на Moscow&nbsp;JS&nbsp;Conf в&nbsp;Москве<br><nobr>24 сентября 2016</nobr>
 
-    <div style="background: #eee; width: 320px; text-align: center; white-space: nowrap; line-height: 240px;">Видео будет</div>
-    <a href="{{site_url}}/share/2-classic-programming.pdf" target="_blank">Презентация</a>&nbsp;(PDF, 5 МБ)
+    <iframe width="320" height="240" src="https://www.youtube.com/embed/b2AhDtFfSSU" frameborder="0" allowfullscreen></iframe>
+    <a href="{{site_url}}/share/2-classic-programming.pdf" target="blank">Презентация</a>&nbsp;(PDF, 5 МБ)
   </div>
 
   <div class="col col-2">
     Выступление на <a href="https://events.yandex.ru/events/meetings/7-july-2016/">Фронтенд-Миксе</a> <nobr>в Яндекс.Деньгах</nobr> в&nbsp;Питере <nobr>7 июля 2016</nobr><br>
     <iframe width="320" height="240" src="https://www.youtube.com/embed/5H923I_Cj3k" frameborder="0" allowfullscreen></iframe><br>
-    <a href="{{site_url}}/share/classic-programming-for-frontenders.pdf" target="_blank">Презентация</a>&nbsp;(PDF, 20 МБ)
+    <a href="{{site_url}}/share/classic-programming-for-frontenders.pdf" target="blank">Презентация</a>&nbsp;(PDF, 20 МБ)
   </div>
 </div>
 
-<p><small>Следующее выступление <nobr>24 сентября 2016</nobr> в&nbsp;Москве<br>на&nbsp;конференции «Moscow&nbsp;JS» в&nbsp;офисе Badoo</small></p>
-
-<hr>
+<hr />
 
 ## Практика
 
