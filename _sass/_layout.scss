@@ -143,26 +143,17 @@ a.site-title {
   vertical-align: middle;
 }
 
+.post-preview:hover .post-preview-title {
+  color: #9C0000;
+}
+
 .post-preview-pic {
-  transition: transform 300ms linear;
-  transform-origin: 50% 80%;
   min-width: 380px;
 }
 
 .post-preview-title {
   font-size: 2em;
-}
-
-.post-preview-link:hover .post-preview-pic {
-  transform: scale(1.02);
-}
-
-.post-preview-link:hover .post-preview-title {
   text-decoration: underline;
-}
-
-.post-preview-link:hover .post-preview-text {
-  text-decoration: none;
 }
 
 @media (max-width: 750px) {
@@ -195,7 +186,7 @@ a.site-title {
 }
 
 .page h1 {
-  font-size: 36px;
+  font-size: 64px;
   letter-spacing: -1px;
   line-height: 1;
 
