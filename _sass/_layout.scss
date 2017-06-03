@@ -133,7 +133,6 @@ a.site-title {
 .post-preview-link:hover,
 .post-preview-link:visited {
   color: #000;
-  text-decoration: none;
 }
 
 
@@ -148,17 +147,12 @@ a.site-title {
   vertical-align: middle;
 }
 
-.post-preview:hover .post-preview-title {
-  color: #9C0000;
-}
-
 .post-preview-pic {
   min-width: 380px;
 }
 
 .post-preview-title {
   font-size: 2em;
-  text-decoration: underline;
 }
 
 @media (max-width: 750px) {
