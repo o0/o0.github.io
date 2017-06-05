@@ -28,11 +28,11 @@ layout: page
     6 июня, 2017
   </div>
   <div class="col col-2">
-    <a href="/share/treat-or-treat-2.pdf" target="_blank">Holy.js</a> в СПб<br>
+    <a href="/share/treat-or-treat-2.pdf" target="_blank">Holy.js</a> в СПб <em>(PDF, ~20Мб)</em><br>
     3 июня, 2017<br>
   </div>
   <div class="col col-3">
-    <a href="/share/treat-or-treat.pdf" target="_blank">ДАМП</a> в Екатеринбурге<br>
+    <a href="/share/treat-or-treat.pdf" target="_blank">ДАМП</a> в Екатеринбурге <em>(PDF, ~15Мб)</em><br>
     апрель
   </div>
 </div>
