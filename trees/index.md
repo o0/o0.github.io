@@ -14,7 +14,7 @@ layout: page
   Выступление на <a href="https://events.yandex.ru/events/yagosti/17-18-september-2016/">FrontTalks</a> в&nbsp;Екатеринбурге<br><nobr>18 сентября 2016</nobr>
 
   <iframe width="800" height="600" src="https://www.youtube.com/embed/mc7EMdyawBk" frameborder="0" allowfullscreen></iframe>
-  <a href="{{site_url}}/share/2-classic-programming.pdf" target="blank">Презентация</a>&nbsp;(PDF, 5 МБ)
+  <a href="{{site_url}}/share/2-classic-programming.pdf" target="_blank">Презентация</a>&nbsp;(PDF, 5 МБ)
 </div>
 
 <div class="col-wrapper col-wrapper-2" style="padding-bottom: 20px;">
@@ -22,13 +22,13 @@ layout: page
     Выступление на Moscow&nbsp;JS&nbsp;Conf в&nbsp;Москве<br><nobr>24 сентября 2016</nobr>
 
     <iframe width="320" height="240" src="https://www.youtube.com/embed/b2AhDtFfSSU" frameborder="0" allowfullscreen></iframe>
-    <a href="{{site_url}}/share/2-classic-programming.pdf" target="blank">Презентация</a>&nbsp;(PDF, 5 МБ)
+    <a href="{{site_url}}/share/2-classic-programming.pdf" target="_blank">Презентация</a>&nbsp;(PDF, 5 МБ)
   </div>
 
   <div class="col col-2">
     Выступление на <a href="https://events.yandex.ru/events/meetings/7-july-2016/">Фронтенд-Миксе</a> <nobr>в Яндекс.Деньгах</nobr> в&nbsp;Питере <nobr>7 июля 2016</nobr><br>
     <iframe width="320" height="240" src="https://www.youtube.com/embed/5H923I_Cj3k" frameborder="0" allowfullscreen></iframe><br>
-    <a href="{{site_url}}/share/classic-programming-for-frontenders.pdf" target="blank">Презентация</a>&nbsp;(PDF, 20 МБ)
+    <a href="{{site_url}}/share/classic-programming-for-frontenders.pdf" target="_blank">Презентация</a>&nbsp;(PDF, 20 МБ)
   </div>
 </div>
 
@@ -39,12 +39,12 @@ layout: page
 ### Битовые массивы
 Битовый массив или битовая карта (bitset, bitarray, bitmap) — последовательность бит (нулей и единиц). Правильное использование битовых массивов поможет писать более производительный и лучше поддерживаемый код. Если же использовать битовые массивы вместе со словарями, можно писать код в декларативном стиле
 
-[Библиотека от HTML Academy](https://github.com/htmlacademy/bitset.js/){:target="blank"} для работы с битовыми картами<br>
-[Разработка компоненты со сложным состоянием]({{site_url}}/trees/bitmasks-example/){:target="blank"}, интерактивная демка
+[Библиотека от HTML Academy](https://github.com/htmlacademy/bitset.js/){:target="_blank"} для работы с битовыми картами<br>
+[Разработка компоненты со сложным состоянием]({{site_url}}/trees/bitmasks-example/){:target="_blank"}, интерактивная демка
 
 ----
 
 ### Деревья
 Деревья — это иерархические рекурсивные структуры данных, они помогают описывать отношения между объектами. Описать дерево в JS можно с помощью встроенного объекта, а код визитора, который использует самый простой способ обхода дерева — прямой поиск в глубину — займет всего пять строк, вместе с управляющим кодом
 
-[Использование дерева для описания зависимостей в форме]({{site_url}}/trees/example/){:target="blank"}, интерактивная демка
+[Использование дерева для описания зависимостей в форме]({{site_url}}/trees/example/){:target="_blank"}, интерактивная демка
