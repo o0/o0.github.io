@@ -24,7 +24,7 @@ layout: page
 ## Выступления
 <div class="col-wrapper col-wrapper-3">
   <div class="col col-1">
-    FrontendConf в Москве<br>
+    <a href="/share/treat-or-treat-2.5.pdf" target="_blank">FrontendConf</a> в Москве<br>
     6 июня, 2017
   </div>
   <div class="col col-2">
