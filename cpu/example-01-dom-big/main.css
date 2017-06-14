@@ -1,0 +1,53 @@
+body {
+  font: 12px/30px Helvetica, Arial, sans-serif;
+}
+
+.nav {
+  font-size: 30px;
+  text-align: center;
+  margin-bottom: 1em;
+}
+
+.nav-item {
+  background: #face8D;
+  color: #000;
+  display: inline-block;
+  font-weight: bold;
+  height: 50px;
+  line-height: 50px;
+  text-decoration: none;
+  width: 50px;
+}
+
+.layout {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.pic {
+  border: solid 1px #ccc;
+  box-sizing: border-box;
+  flex-basis: 150px;
+  height: 150px;
+  margin: 10px;
+  width: 150px;
+}
+
+.pic-wrap {
+  height: 120px;
+  overflow: hidden;
+  width: 100%;
+}
+
+.pic-thumb {
+  display: block;
+  min-height: 100%;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.pic-like {
+  box-sizing: border-box;
+  cursor: pointer;
+  margin-left: 0.5em;
+}
