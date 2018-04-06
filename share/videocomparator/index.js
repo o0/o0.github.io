@@ -26,27 +26,53 @@
   const clamp = (val, min, max) => Math.max(Math.min(max, val), min);
 
 
-  const initDND = (element, container, updateFn) => {
+  const BehaviourID = {
+    MOUSE: 1,
+    TOUCH: 2
+  };
+
+
+  const BehaviourIDToEventType = {
+    [BehaviourID.TOUCH]: {
+      START: `touchstart`,
+      PROCESS: `touchmove`,
+      STOP: `touchend`
+    },
+
+    [BehaviourID.MOUSE]: {
+      START: `mousedown`,
+      PROCESS: `mousemove`,
+      STOP: `mouseup`
+    }
+  };
+
+
+  const initDND = (element, container, updateFn, behaviour = BehaviourID.MOUSE) => {
     const containerOffset = container.offsetLeft;
     const containerWidth = container.offsetWidth;
 
-    const onMouseMove = (evt) => {
-      updateFn(clamp((evt.clientX - containerOffset) / containerWidth, 0, 1));
+    const eventType = BehaviourIDToEventType[behaviour];
+
+    const onProcess = (evt) => {
+      const evtX = typeof evt.clientX === `undefined`
+        ? evt.targetTouches[0].clientX
+        : evt.clientX;
+      updateFn(clamp((evtX - containerOffset) / containerWidth, 0, 1));
     };
 
-    const onMouseUp = () => {
-      document.body.removeEventListener(`mousemove`, onMouseMove);
-      document.body.removeEventListener(`mouseup`, onMouseUp);
+    const onStop = () => {
+      document.body.removeEventListener(eventType.PROCESS, onProcess);
+      document.body.removeEventListener(eventType.STOP, onStop);
     };
 
-    element.onmousedown = () => {
-      document.body.addEventListener(`mousemove`, onMouseMove);
-      document.body.addEventListener(`mouseup`, onMouseUp);
+    const onStart = () => {
+      document.body.addEventListener(eventType.PROCESS, onProcess);
+      document.body.addEventListener(eventType.STOP, onStop);
     };
 
-    return () => {
-      element.onmousedown = null;
-    };
+    element.addEventListener(eventType.START, onStart);
+
+    return () => element.removeEventListener(eventType.START, onStart);
   };
 
 
@@ -133,11 +159,14 @@
         decoratedContainer.querySelector(`canvas`).getContext(`2d`),
         videoLeft, videoRight, options);
 
-    updateStateFn(options);
-
-    initDND(pin, container, (pos) => updateStateFn(Object.assign({}, options, {
+    const DNDStepFn = (pos) => updateStateFn(Object.assign({}, options, {
       separator: pos
-    })));
+    }));
+
+    initDND(pin, container, DNDStepFn, BehaviourID.MOUSE);
+    initDND(pin, container, DNDStepFn, BehaviourID.TOUCH);
+
+    updateStateFn(options);
   };
 
 
