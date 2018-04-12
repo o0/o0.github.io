@@ -3,6 +3,7 @@
 (() => {
   const createCanvas = (container, {width, height}) => {
     const canvasEl = document.createElement(`canvas`);
+    canvasEl.classList.add(`video`);
     canvasEl.setAttribute(`width`, width);
     canvasEl.setAttribute(`height`, height);
     return canvasEl;
@@ -10,6 +11,7 @@
 
 
   const decorateContainer = (container, options) => {
+    container.style.maxWidth = `${options.width}px`;
     container.insertAdjacentElement(`afterbegin`, createCanvas(container, options));
     container.insertAdjacentHTML(`afterbegin`, `<div class="video-controls">
       <div class="video-controls__separator"></div>
@@ -26,6 +28,12 @@
   const clamp = (val, min, max) => Math.max(Math.min(max, val), min);
 
 
+  const compose = (...fns) => fns.reduce((prevFn, nextFn) =>
+    value => nextFn(prevFn(value)),
+    value => value
+  );
+
+
   const BehaviourID = {
     MOUSE: 1,
     TOUCH: 2
@@ -33,17 +41,23 @@
 
 
   const BehaviourIDToEventType = {
-    [BehaviourID.TOUCH]: {
-      START: `touchstart`,
-      PROCESS: `touchmove`,
-      STOP: `touchend`
-    },
-
     [BehaviourID.MOUSE]: {
       START: `mousedown`,
       PROCESS: `mousemove`,
       STOP: `mouseup`
+    },
+
+    [BehaviourID.TOUCH]: {
+      START: `touchstart`,
+      PROCESS: `touchmove`,
+      STOP: `touchend`
     }
+  };
+
+
+  const BehaviourToGetCoordinateFn = {
+    [BehaviourID.MOUSE]: (evt) => evt.clientX,
+    [BehaviourID.TOUCH]: (evt) => evt.targetTouches[0].clientX
   };
 
 
@@ -52,12 +66,10 @@
     const containerWidth = container.offsetWidth;
 
     const eventType = BehaviourIDToEventType[behaviour];
+    const getCoordinate = BehaviourToGetCoordinateFn[behaviour];
 
     const onProcess = (evt) => {
-      const evtX = typeof evt.clientX === `undefined`
-        ? evt.targetTouches[0].clientX
-        : evt.clientX;
-      updateFn(clamp((evtX - containerOffset) / containerWidth, 0, 1));
+      updateFn(clamp((getCoordinate(evt) - containerOffset) / containerWidth, 0, 1));
     };
 
     const onStop = () => {
@@ -144,9 +156,11 @@
 
 
   const init = (container, videoLeftSrc, videoRightSrc, options) => {
-    options = Object.assign({}, options, {
-      separator: 0.5
-    });
+    if (typeof options.separator === `undefined`) {
+      options = Object.assign({}, options, {
+        separator: 0.5
+      });
+    }
 
     const decoratedContainer = decorateContainer(container, options);
     const pin = decoratedContainer.querySelector(`.video-controls__separator`);
@@ -163,9 +177,18 @@
       separator: pos
     }));
 
-    initDND(pin, container, DNDStepFn, BehaviourID.MOUSE);
-    initDND(pin, container, DNDStepFn, BehaviourID.TOUCH);
+    let resizeFn;
 
+    const setupDNDForSize = () => compose(
+        initDND(pin, container, DNDStepFn, BehaviourID.MOUSE),
+        initDND(pin, container, DNDStepFn, BehaviourID.TOUCH));
+
+    window.onresize = () => {
+      resizeFn();
+      resizeFn = setupDNDForSize();
+    };
+
+    resizeFn = setupDNDForSize();
     updateStateFn(options);
   };
 
@@ -174,5 +197,9 @@
       document.querySelector(`.layout`),
       `./video-1.mp4`,
       `./video-2.mp4`,
-      {width: 640, height: 320});
+      {
+        height: 320,
+        separator: 0.62,
+        width: 640
+      });
 })();

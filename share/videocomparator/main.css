@@ -1,13 +1,18 @@
 .layout {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
-  height: 320px;
+  margin: 0 auto;
   position: relative;
   transition: box-shadow 50ms ease-in;
-  width: 640px;
+  width: 100%;
 }
 
 .layout:hover {
   box-shadow: 0 0 30px rgba(0, 0, 0, 1);
+}
+
+.video {
+  height: 100%;
+  width: 100%;
 }
 
 .video-controls {
