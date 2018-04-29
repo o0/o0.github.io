@@ -1,6 +1,9 @@
 'use strict';
 
 (() => {
+  const noop = (value) => value;
+
+
   const createCanvas = (container, {width, height}) => {
     const canvasEl = document.createElement(`canvas`);
     canvasEl.classList.add(`video`);
@@ -29,9 +32,8 @@
 
 
   const compose = (...fns) => fns.reduce((prevFn, nextFn) =>
-    value => nextFn(prevFn(value)),
-    value => value
-  );
+    (value) => nextFn(prevFn(value)),
+  noop);
 
 
   const BehaviourID = {
@@ -42,9 +44,9 @@
 
   const BehaviourIDToEventType = {
     [BehaviourID.MOUSE]: {
-      START: `mousedown`,
+      START: `mouseenter`,
       PROCESS: `mousemove`,
-      STOP: `mouseup`
+      STOP: `mouseleave`
     },
 
     [BehaviourID.TOUCH]: {
@@ -135,9 +137,7 @@
 
     frameFn();
 
-    return () => {
-      window.cancelAnimationFrame(frameID);
-    };
+    return () => window.cancelAnimationFrame(frameID);
   };
 
 
@@ -180,7 +180,7 @@
     let resizeFn;
 
     const setupDNDForSize = () => compose(
-        initDND(pin, container, DNDStepFn, BehaviourID.MOUSE),
+        initDND(container, container, DNDStepFn, BehaviourID.MOUSE),
         initDND(pin, container, DNDStepFn, BehaviourID.TOUCH));
 
     window.onresize = () => {
