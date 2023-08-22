@@ -1,8 +1,8 @@
 ---
 layout: default
-title:  "Сибирский диалект"
-date:   2015-11-08 16:00:01
-categories:
+title:  "Bearly Rustic Life"
+date:   2023-08-21 
+categories: All Required
 ---
 
 - Батон
@@ -23,3 +23,6 @@ categories:
 - Филки
 - Хлюзда
 - Хлюздить
+
+
+
