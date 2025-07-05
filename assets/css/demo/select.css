@@ -1,0 +1,12 @@
+.select {
+  width: auto;
+}
+
+.select-item {
+  cursor: pointer;
+  padding: 5px 10px;
+}
+
+.select-item:hover {
+  background: rgba(0, 100, 255, 0.4);
+}

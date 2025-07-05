@@ -1,0 +1,36 @@
+.panel.panelpreview {
+  background: #999;
+  left: 50%;
+  right: 0;
+  top: 0;
+  width: auto;
+}
+
+.panelpreview--containerwrapper {
+  bottom: 0;
+  overflow: auto;
+  position: absolute;
+  top: 30px;
+  width: 100%;
+}
+
+.panelpreview iframe {
+  background: #fff;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);
+  display: block;
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+.panelpreview-controls {
+  background: #eee;
+  flex-grow: 1;
+  max-height: 30px;
+  position: absolute;
+  left: 0;
+  white-space: nowrap;
+  width: 100%;
+}

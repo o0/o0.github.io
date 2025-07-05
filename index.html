@@ -2,8 +2,32 @@
 layout: default
 ---
 
-<article>
-  <h2 style="text-indent: -1.3em;">— Привет!</h2>
-  <p>Вообще, этот сайт достаточно вспомогательная штука: с приходом в <a href="http://htmlacademy.ru" target="_blank">Академию</a> оказалось, что мне есть чем делиться с народом, выкладывать какие-то ссылки, файлы, инструкции и прочее, поэтому я решил довести эту тему до ума и сделать из всего этого минисайтик. Тут будет только то, чем пользуюсь или я или пользуются другие, потому что я дал им на это ссылку. Кажется, это единственно верный подход, а то всякие портфолио и блоги из под палки, потому что так стильно, модно, молодежно не работают, я пробовал.</p>
-  <p><a href="http://jekyllrb.com/" target="_blank">Jekyll</a>, кстати, тема. Так уютно жить не вылазя из <a href="http://atom.io" target="_blank">Атома</a>.</p>
-</article>
+<a class="post-preview-link" href="/cpu">
+  <article class="post-preview" style="height: 400px; background: url(/assets/images/gpu/cover.png) center repeat;">
+    <div class="post-preview-content" style="margin: 0 auto; text-align: center; position: relative;">
+      <h3 class="post-preview-title">
+        Оптимизация производительности фронтенда
+        <span style="position: absolute; background: #dd4241; padding: 3px; color: #fff; font-size: 12px; left: 100%; top: -0.5em">Новое</span>
+      </h3>
+      <p class="post-preview-text">Выступление в Екатеринбурге на ДАМП, в СПб на Holy.js и в Москве на FrontendConf (РИТ++)</p>
+    </div>
+  </article>
+</a>
+
+<a class="post-preview-link" href="/trees">
+  <article class="post-preview">
+    <img class="post-preview-pic" src="/assets/images/programming-for-frontenders/promo.png" width="358" height="400">
+    <div class="post-preview-content">
+      <h3 class="post-preview-title">Классическое программирование для&nbsp;фронтендеров</h3>
+      <p class="post-preview-text">Рассказ о&nbsp;том, что&nbsp;меня больше всего волнует в&nbsp;веб-разработке с&nbsp;ссылками на&nbsp;выступления и&nbsp;примерами кода</p>
+    </div>
+  </article>
+</a>
+
+<div class="incut">
+  <p>Для <a href="https://htmlacademy.ru/intensive/javascript" target="_blank" rel="nofollow">моих курсов</a> в&nbsp;Академии HTML мне всегда нужна помощь <a href="https://htmlacademy.ru/intensive/javascript/tutors" target="_blank" rel="nofollow">наставников</a>. Это интересная, относительно несложная дополнительная работа, которая подойдет тем, кто&nbsp;хочет упорядочить свои знания языка, немного подработать не занимаясь при этом разработкой или тем, кто ищет себе в&nbsp;команду джуниора, но&nbsp;при этом хочет контролировать направление его развития и&nbsp;понимать его уровень <br><br><a href="mailto:igor.alexeenko@htmlacademy.ru?cc=tutors@htmlacademy.ru&subject=Наставничество на интенсиве по JS (o0.github.o0)">Напишите мне</a>
+</div>
+
+<script src="{{ site.baseURL }}/assets/javascripts/build.js"></script>
+
+{% include likely.html %}

@@ -1,0 +1,26 @@
+.panel--content {
+  background: #fff;
+}
+
+.panel--content .editor {
+  background: #fff;
+  bottom: 0;
+  font-family: monospace;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 30px;
+}
+
+.panel--content .editor--active {
+  visibility: visible;
+}
+
+.select.editors {
+  background: #fff;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+  font-size: 90%;
+  position: absolute;
+  right: 0;
+  z-index: 5;
+}
